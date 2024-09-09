@@ -17,11 +17,11 @@ var geoIp GeoIP
 func InitGeoIpDB() {
 	err := bingeoip.RestoreAsset("", "assets/GeoLite2-City.mmdb")
 	if err != nil {
-		panic(err)
+		panic(any(err))
 	}
 	err = bingeoip.RestoreAsset("", "assets/flags.json")
 	if err != nil {
-		panic(err)
+		panic(any(err))
 	}
 	geoIp = NewGeoIP("assets/GeoLite2-City.mmdb", "assets/flags.json")
 }

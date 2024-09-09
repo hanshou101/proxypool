@@ -32,7 +32,11 @@ func main() {
 	}
 	err := app.InitConfigAndGetters(configFilePath)
 	if err != nil {
-		panic(err)
+		configFilePath = "config/config.yaml"
+		err := app.InitConfigAndGetters(configFilePath)
+		if err != nil {
+			panic(any(err))
+		}
 	}
 
 	database.InitTables()

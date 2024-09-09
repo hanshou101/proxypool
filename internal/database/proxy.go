@@ -22,7 +22,7 @@ func InitTables() {
 	}
 	err := DB.AutoMigrate(&Proxy{})
 	if err != nil {
-		panic(err)
+		panic(any(err))
 	}
 }
 
